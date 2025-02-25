@@ -38,7 +38,7 @@ const OrderPage = () => {
   }
 
   return (
-    <div className="container mx-auto py-8 px-4">
+    <div className="container min-h-screen mx-auto py-8 px-4">
       <div className="mt-8">
         <h2 className="text-3xl font-semibold text-gray-800">Order Details</h2>
 

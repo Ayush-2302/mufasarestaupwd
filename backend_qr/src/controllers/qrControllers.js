@@ -3,7 +3,7 @@ import QRCode from "qrcode";
 
 export const createQrScanner = async (req, res) => {
   const tableId = req.params.tableId;
-  const tableUrl = `http://localhost:5173/menu/${tableId}`;
+  const tableUrl = `${process.env.BASE_URL}/menu/${tableId}`;
   try {
     QRCode.toDataURL(tableUrl, (err, qrCodeUrl) => {
       if (err) {
@@ -32,7 +32,7 @@ export const submitContactForm = async (req, res) => {
       .status(400)
       .json({ error: "All fields (name, email, message) are required" });
   }
-  
+
   try {
     await sendEmailToCustomer(email, name);
     await sendEmailToOwner(name, email, message);
